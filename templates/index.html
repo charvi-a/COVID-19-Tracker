@@ -1,0 +1,35 @@
+{%extends 'page.html'%}
+
+{% block content %}
+
+<div class = "container">
+<div class = "row">
+
+	<div class = "col-3">
+		<h5>TOP 10 COUNTRIES</h5>
+		<table class = "table-responsive-sm"> 
+			<thead>
+				<tr>
+					<th scope = "col">Country</th>
+					<th scope = "col">Confirmed Cases</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in rows %}
+					<tr>		
+					<td> {{row[0]}}</td>
+					<td> {{row[1]}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class = "col-9">
+		<h4>World Map of COVID-19 cases</h4>
+		<p>Data is taken from a John Hopkin's resource with daily updates on Corona virus cases. The data is used to provide information on Coronavirus cases around the world.</p>
+		{{cmap | safe}}
+	</div>		
+</div>
+
+{% endblock %}
+
