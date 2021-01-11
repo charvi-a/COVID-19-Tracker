@@ -19,9 +19,8 @@ for country,Confirmed in zip(country_df.index,country_df['Confirmed']):
 	rows.append((country,Confirmed))
 
 
-map_countries=folium.Map(location=[34.223334,-82.461707],
-            tiles='CartoDB positron',
-            zoom_start=3)
+map_countries=folium.Map(location=[34.223334,-82.461707], tiles='CartoDB positron',
+                         zoom_start=3)
 
 
 def create_circle(ele):
@@ -29,7 +28,6 @@ def create_circle(ele):
                     popup=f'{ele[3]} Confirmed Cases {ele[2]}', color='red').add_to(map_countries)
 
 file = file.dropna(subset=['Lat','Long_','Confirmed','Combined_Key'])
-print(file)
 file[['Lat','Long_','Confirmed','Combined_Key']].apply(lambda ele:create_circle(ele),axis=1)
 html_map=map_countries._repr_html_()
 
