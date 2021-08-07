@@ -44,8 +44,7 @@ for country,Confirmed in zip(country_df.index,country_df['TotalConfirmed']):
 
 map_countries=folium.Map(location=[34.223334,-82.461707],tiles='CartoDB positron',zoom_start=3)
 
-
-<<<<<<< HEAD
+#get the latitude and longitude for each of the countries
 latitudes = []
 longitudes = []
 def get_geolocation(country):
@@ -54,10 +53,9 @@ def get_geolocation(country):
 		return geolocator.geocode(country)
 	except GeocoderTimedOut:
 		return get_geolocation(country)
-=======
+	
 map_countries=folium.Map(location=[34.223334,-82.461707], tiles='CartoDB positron',
                          zoom_start=3)
->>>>>>> 992b92b083748a652246c20ee6388d2f556defec
 
 
 for ele in file["Country"]:
@@ -69,7 +67,7 @@ for ele in file["Country"]:
 	else:
 		longitudes.append(np.nan)
 		latitudes.append(np.nan)
-
+		
 file["Longitude"] = longitudes
 file["Latitude"] = latitudes
 
@@ -80,11 +78,9 @@ def create_circle(ele):
 file = file.dropna(subset=['Latitude','Longitude','NewConfirmed','TotalConfirmed','Country'])
 file[['Latitude','Longitude','NewConfirmed','TotalConfirmed','Country']].apply(lambda ele:create_circle(ele),axis=1)
 
-<<<<<<< HEAD
-=======
+
 file = file.dropna(subset=['Lat','Long_','Confirmed','Combined_Key'])
 file[['Lat','Long_','Confirmed','Combined_Key']].apply(lambda ele:create_circle(ele),axis=1)
->>>>>>> 992b92b083748a652246c20ee6388d2f556defec
 html_map=map_countries._repr_html_()
 
 
