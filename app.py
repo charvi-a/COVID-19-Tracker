@@ -77,10 +77,6 @@ def create_circle(ele):
 
 file = file.dropna(subset=['Latitude','Longitude','NewConfirmed','TotalConfirmed','Country'])
 file[['Latitude','Longitude','NewConfirmed','TotalConfirmed','Country']].apply(lambda ele:create_circle(ele),axis=1)
-
-
-file = file.dropna(subset=['Lat','Long_','Confirmed','Combined_Key'])
-file[['Lat','Long_','Confirmed','Combined_Key']].apply(lambda ele:create_circle(ele),axis=1)
 html_map=map_countries._repr_html_()
 
 
