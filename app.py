@@ -54,9 +54,7 @@ def get_geolocation(country):
 	except GeocoderTimedOut:
 		return get_geolocation(country)
 	
-map_countries=folium.Map(location=[34.223334,-82.461707], tiles='CartoDB positron',
-                         zoom_start=3)
-
+map_countries=folium.Map(location=[34.223334,-82.461707], tiles='CartoDB positron', zoom_start=3)
 
 for ele in file["Country"]:
 	if get_geolocation(ele):
